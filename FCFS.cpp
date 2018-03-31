@@ -1,4 +1,42 @@
 ///FIRST COME FIRST SERVE
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int process,bt[100],gt[100],sum=0;
+    gt[0]=0;
+    cin>>process;
+
+    for(int i=0;i<process;i++)
+    {
+        cin>>bt[i];
+    }
+
+    cout<<"Gantt Chart ";
+    for(int i=1;i<=process+1;i++)
+    {
+        gt[i] = gt[i-1]+bt[i-1];
+        cout<<gt[i-1]<<" ";
+
+    }
+    cout<<endl<<"Waiting Time ";
+    for(int i=1;i<=process;i++)
+    {
+        gt[i] = gt[i-1]+bt[i-1];
+        cout<<gt[i-1]<<" ";
+        sum += gt[i];
+    }
+
+    cout<<endl<<"Average Wating Time "<<sum/process<<endl;
+
+
+}
+
+
+                                          ###### ALTERNATIVE ######
+
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
